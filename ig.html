@@ -1,0 +1,6 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><title>Deal Dash helper</title></head>
+<body><p>Deal Dash card helper.</p><script>
+(async()=>{const q=new URLSearchParams(location.search);const ns=(q.get('n')||'1,9,17,2,5,13,3,10,8,4').split(',').map(Number);
+const out=[];for(const n of ns){const nn=String(n).padStart(2,'0');const b=await (await fetch('card'+nn+'.jpg?t='+Date.now())).blob();out.push({name:'dealdash_'+nn+'.jpg',blob:b});}
+const t=window.opener||window.parent;if(t&&t!==window)t.postMessage({dd:out},'https://www.instagram.com');document.body.append(' sent '+out.length);})();
+</script></body></html>
